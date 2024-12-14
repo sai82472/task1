@@ -1,0 +1,427 @@
+labuser@labuser-virtual-machine:~$ git config --global init.defaultbranch master
+labuser@labuser-virtual-machine:~$ git init
+Initialized empty Git repository in /home/labuser/.git/
+labuser@labuser-virtual-machine:~$ git commit -m "change1"
+On branch master
+
+Initial commit
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	.ansible/
+	.bash_history
+	.bash_logout
+	.bashrc
+	.cache/
+	.config/
+	.docker/
+	.gitconfig
+	.lesshst
+	.local/
+	.pki/
+	.profile
+	.ssh/
+	.sudo_as_admin_successful
+	.vscode/
+	execute.yml
+	snap/
+	test1/
+
+nothing added to commit but untracked files present (use "git add" to track)
+labuser@labuser-virtual-machine:~$ cd test1
+labuser@labuser-virtual-machine:~/test1$ git commit -m "change1"
+[master (root-commit) 27609a2] change1
+ 1 file changed, 1 insertion(+)
+ create mode 100644 test1
+labuser@labuser-virtual-machine:~/test1$ git remote add origin https://github.com/sai82472/task1.git
+labuser@labuser-virtual-machine:~/test1$ git remote --v
+origin	https://github.com/sai82472/task1.git (fetch)
+origin	https://github.com/sai82472/task1.git (push)
+labuser@labuser-virtual-machine:~/test1$ git push --u origin master
+error: unknown option `u'
+usage: git push [<options>] [<repository> [<refspec>...]]
+
+    -v, --verbose         be more verbose
+    -q, --quiet           be more quiet
+    --repo <repository>   repository
+    --all                 push all refs
+    --mirror              mirror all refs
+    -d, --delete          delete refs
+    --tags                push tags (can't be used with --all or --mirror)
+    -n, --dry-run         dry run
+    --porcelain           machine-readable output
+    -f, --force           force updates
+    --force-with-lease[=<refname>:<expect>]
+                          require old value of ref to be at this value
+    --force-if-includes   require remote updates to be integrated locally
+    --recurse-submodules (check|on-demand|no)
+                          control recursive pushing of submodules
+    --thin                use thin pack
+    --receive-pack <receive-pack>
+                          receive pack program
+    --exec <receive-pack>
+                          receive pack program
+    -u, --set-upstream    set upstream for git pull/status
+    --progress            force progress reporting
+    --prune               prune locally removed refs
+    --no-verify           bypass pre-push hook
+    --follow-tags         push missing but relevant tags
+    --signed[=(yes|no|if-asked)]
+                          GPG sign the push
+    --atomic              request atomic transaction on remote side
+    -o, --push-option <server-specific>
+                          option to transmit
+    -4, --ipv4            use IPv4 addresses only
+    -6, --ipv6            use IPv6 addresses only
+
+labuser@labuser-virtual-machine:~/test1$ git push -u origin master
+Username for 'https://github.com': sai82472
+Password for 'https://sai82472@github.com': 
+Enumerating objects: 3, done.
+Counting objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 222 bytes | 222.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+To https://github.com/sai82472/task1.git
+ * [new branch]      master -> master
+Branch 'master' set up to track remote branch 'master' from 'origin'.
+labuser@labuser-virtual-machine:~/test1$ ls
+test1
+labuser@labuser-virtual-machine:~/test1$ nano test1
+labuser@labuser-virtual-machine:~/test1$ git add .
+labuser@labuser-virtual-machine:~/test1$ git commit -m "change2"
+[master c5a1472] change2
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+labuser@labuser-virtual-machine:~/test1$ git push -u origin master
+Username for 'https://github.com': sai82472
+Password for 'https://sai82472@github.com': 
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Writing objects: 100% (3/3), 250 bytes | 250.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+To https://github.com/sai82472/task1.git
+   27609a2..c5a1472  master -> master
+Branch 'master' set up to track remote branch 'master' from 'origin'.
+labuser@labuser-virtual-machine:~/test1$ git branch
+* master
+labuser@labuser-virtual-machine:~/test1$ git branch devops1
+labuser@labuser-virtual-machine:~/test1$ git checkout devops1
+Switched to branch 'devops1'
+labuser@labuser-virtual-machine:~/test1$ git branch
+* devops1
+  master
+labuser@labuser-virtual-machine:~/test1$ echo "test3">file1
+labuser@labuser-virtual-machine:~/test1$ echo "test4">file2
+labuser@labuser-virtual-machine:~/test1$ ls -li
+total 12
+6162008 -rw-rw-r-- 1 labuser labuser 6 Dec 13 23:49 file1
+6162105 -rw-rw-r-- 1 labuser labuser 6 Dec 13 23:49 file2
+6162010 -rw-rw-r-- 1 labuser labuser 6 Dec 13 23:42 test1
+labuser@labuser-virtual-machine:~/test1$ git commit -m "change4"
+On branch devops1
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	file1
+	file2
+
+nothing added to commit but untracked files present (use "git add" to track)
+labuser@labuser-virtual-machine:~/test1$ git push -u origin devops1
+Username for 'https://github.com': sai82472
+Password for 'https://sai82472@github.com': 
+Total 0 (delta 0), reused 0 (delta 0), pack-reused 0
+remote: 
+remote: Create a pull request for 'devops1' on GitHub by visiting:
+remote:      https://github.com/sai82472/task1/pull/new/devops1
+remote: 
+To https://github.com/sai82472/task1.git
+ * [new branch]      devops1 -> devops1
+Branch 'devops1' set up to track remote branch 'devops1' from 'origin'.
+labuser@labuser-virtual-machine:~/test1$ git push -u origin devops1
+Username for 'https://github.com': sai82472            
+Password for 'https://sai82472@github.com': 
+Branch 'devops1' set up to track remote branch 'devops1' from 'origin'.
+Everything up-to-date
+labuser@labuser-virtual-machine:~/test1$ git branch
+* devops1
+  master
+labuser@labuser-virtual-machine:~/test1$ git checkout master
+Switched to branch 'master'
+Your branch is up to date with 'origin/master'.
+labuser@labuser-virtual-machine:~/test1$ git merge devops1
+Already up to date.
+labuser@labuser-virtual-machine:~/test1$ git log -p
+commit c5a14724be199ba6f59c65192b2da8acacc4e3f1 (HEAD -> master, origin/master, origin/devops1, devops1)
+Author: David Robichaud <david.robichaud@skillsoft.com>
+Date:   Fri Dec 13 23:43:36 2024 -0500
+
+commit c5a14724be199ba6f59c65192b2da8acacc4e3f1 (HEAD -> master, origin/master, 
+origin/devops1, devops1)
+Author: David Robichaud <david.robichaud@skillsoft.com>
+Date:   Fri Dec 13 23:43:36 2024 -0500
+
+Date:   Fri Dec 13 23:43:36 2024 -0500
+
+commit c5a14724be199ba6f59c65192b2da8acacc4e3f1 (HEAD -> master, origin/master, 
+origin/devops1, devops1)
+Author: David Robichaud <david.robichaud@skillsoft.com>
+Date:   Fri Dec 13 23:43:36 2024 -0500
+
+    change2
+
+diff --git a/test1 b/test1
+index a5bce3f..180cf83 100644
+--- a/test1
++++ b/test1
+@@ -1 +1 @@
+-test1
++test2
+
+commit 27609a2b674800084bc66f00e3db4c3c98143a95
+Author: David Robichaud <david.robichaud@skillsoft.com>
+Date:   Fri Dec 13 23:32:20 2024 -0500
+
+    change1
+
+diff --git a/test1 b/test1
+new file mode 100644
+index 0000000..a5bce3f
+--- /dev/null
++++ b/test1
+@@ -0,0 +1 @@
++test1
+...skipping...
+
+                   SUMMARY OF LESS COMMANDS
+
+      Commands marked with * may be preceded by a number, N.
+      Notes in parentheses indicate the behavior if N is given.
+      A key preceded by a caret indicates the Ctrl key; thus ^K is ctrl-K.
+
+  h  H                 Display this help.
+  q  :q  Q  :Q  ZZ     Exit.
+ ---------------------------------------------------------------------------
+
+                           MOVING
+
+  e  ^E  j  ^N  CR  *  Forward  one line   (or N lines).
+  y  ^Y  k  ^K  ^P  *  Backward one line   (or N lines).
+  f  ^F  ^V  SPACE  *  Forward  one window (or N lines).
+  b  ^B  ESC-v      *  Backward one window (or N lines).
+  z                 *  Forward  one window (and set window to N).
+  w                 *  Backward one window (and set window to N).
+  ESC-SPACE         *  Forward  one window, but don't stop at end-of-file.
+  d  ^D             *  Forward  one half-window (and set half-window to N).
+  u  ^U             *  Backward one half-window (and set half-window to N).
+  ESC-)  RightArrow *  Right one half screen width (or N positions).
+  ESC-(  LeftArrow  *  Left  one half screen width (or N positions).
+                   SUMMARY OF LESS COMMANDS
+
+      Commands marked with * may be preceded by a number, N.
+      Notes in parentheses indicate the behavior if N is given.
+      A key preceded by a caret indicates the Ctrl key; thus ^K is ctrl-K.
+
+  h  H                 Display this help.
+  q  :q  Q  :Q  ZZ     Exit.
+ ---------------------------------------------------------------------------
+
+                           MOVING
+
+  e  ^E  j  ^N  CR  *  Forward  one line   (or N lines).
+  y  ^Y  k  ^K  ^P  *  Backward one line   (or N lines).
+  f  ^F  ^V  SPACE  *  Forward  one window (or N lines).
+  b  ^B  ESC-v      *  Backward one window (or N lines).
+  z                 *  Forward  one window (and set window to N).
+  w                 *  Backward one window (and set window to N).
+  ESC-SPACE         *  Forward  one window, but don't stop at end-of-file.
+  d  ^D             *  Forward  one half-window (and set half-window to N).
+  u  ^U             *  Backward one half-window (and set half-window to N).
+  ESC-)  RightArrow *  Right one half screen width (or N positions).
+  ESC-(  LeftArrow  *  Left  one half screen width (or N positions).
+  ESC-}  ^RightArrow   Right to last column displayed.
+  ESC-{  ^LeftArrow    Left  to first column.
+HELP -- Press RETURN for more, or q when done...skipping...
+    change2
+
+diff --git a/test1 b/test1
+index a5bce3f..180cf83 100644
+--- a/test1
++++ b/test1
+@@ -1 +1 @@
+-test1
++test2
+
+commit 27609a2b674800084bc66f00e3db4c3c98143a95
+Author: David Robichaud <david.robichaud@skillsoft.com>
+Date:   Fri Dec 13 23:32:20 2024 -0500
+
+    change1
+
+diff --git a/test1 b/test1
+new file mode 100644
+index 0000000..a5bce3f
+--- /dev/null
++++ b/test1
+@@ -0,0 +1 @@
++test1
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+labuser@labuser-virtual-machine:~/test1$ git log --oneline
+c5a1472 (HEAD -> master, origin/master, origin/devops1, devops1) change2
+27609a2 change1
+labuser@labuser-virtual-machine:~/test1$ git commit -m "change4"
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	file1
+	file2
+
+nothing added to commit but untracked files present (use "git add" to track)
+labuser@labuser-virtual-machine:~/test1$ git push -u origin devops1
+Username for 'https://github.com': sai82472
+Password for 'https://sai82472@github.com': 
+Branch 'devops1' set up to track remote branch 'devops1' from 'origin'.
+Everything up-to-date
+labuser@labuser-virtual-machine:~/test1$ git checkout devops1
+Switched to branch 'devops1'
+Your branch is up to date with 'origin/devops1'.
+labuser@labuser-virtual-machine:~/test1$ git branch
+* devops1
+  master
+labuser@labuser-virtual-machine:~/test1$ echo "test3">file1
+labuser@labuser-virtual-machine:~/test1$ echo "test4">file2
+labuser@labuser-virtual-machine:~/test1$ ls -li
+total 12
+6162008 -rw-rw-r-- 1 labuser labuser 6 Dec 14 00:00 file1
+6162105 -rw-rw-r-- 1 labuser labuser 6 Dec 14 00:00 file2
+6162010 -rw-rw-r-- 1 labuser labuser 6 Dec 13 23:42 test1
+labuser@labuser-virtual-machine:~/test1$ git add .
+labuser@labuser-virtual-machine:~/test1$ git commit -m "change4"
+[devops1 0bc6d99] change4
+ 2 files changed, 2 insertions(+)
+ create mode 100644 file1
+ create mode 100644 file2
+labuser@labuser-virtual-machine:~/test1$ git push -u origin devops1
+Username for 'https://github.com': sai82472
+Password for 'https://sai82472@github.com': 
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (4/4), 321 bytes | 321.00 KiB/s, done.
+Total 4 (delta 0), reused 0 (delta 0), pack-reused 0
+To https://github.com/sai82472/task1.git
+   c5a1472..0bc6d99  devops1 -> devops1
+Branch 'devops1' set up to track remote branch 'devops1' from 'origin'.
+labuser@labuser-virtual-machine:~/test1$ git branch
+* devops1
+  master
+labuser@labuser-virtual-machine:~/test1$ git checkout master
+Switched to branch 'master'
+Your branch is up to date with 'origin/master'.
+labuser@labuser-virtual-machine:~/test1$ git merge devops1
+Updating c5a1472..0bc6d99
+Fast-forward
+ file1 | 1 +
+ file2 | 1 +
+ 2 files changed, 2 insertions(+)
+ create mode 100644 file1
+ create mode 100644 file2
+labuser@labuser-virtual-machine:~/test1$ git log --oneline
+0bc6d99 (HEAD -> master, origin/devops1, devops1) change4
+c5a1472 (origin/master) change2
+27609a2 change1
+labuser@labuser-virtual-machine:~/test1$ cd
+labuser@labuser-virtual-machine:~$ git clone https://github.com/sai82472/task1.git
+Cloning into 'task1'...
+remote: Enumerating objects: 10, done.
+remote: Counting objects: 100% (10/10), done.
+remote: Compressing objects: 100% (4/4), done.
+remote: Total 10 (delta 0), reused 10 (delta 0), pack-reused 0 (from 0)
+Receiving objects: 100% (10/10), done.
+labuser@labuser-virtual-machine:~$ ls -li
+total 56
+6029410 drwxr-xr-x 2 labuser labuser 4096 Sep 12  2023 Desktop
+6029414 drwxr-xr-x 3 labuser labuser 4096 Dec 15  2023 Documents
+6029411 drwxr-xr-x 2 labuser labuser 4096 Dec 18  2023 Downloads
+6036475 -rw-rw-r-- 1 labuser labuser   53 Dec 18  2023 execute.yml
+6029415 drwxr-xr-x 2 labuser labuser 4096 Sep 12  2023 Music
+6029416 drwxr-xr-x 2 labuser labuser 4096 Sep 12  2023 Pictures
+6029413 drwxr-xr-x 2 labuser labuser 4096 Sep 12  2023 Public
+6030259 drwxrwxr-x 2 labuser labuser 4096 Dec 18  2023 repos
+6029322 drwx------ 6 labuser labuser 4096 Dec 15  2023 snap
+6030309 drwxrwxr-x 3 labuser labuser 4096 Dec 14 00:04 task1
+6029412 drwxr-xr-x 2 labuser labuser 4096 Sep 12  2023 Templates
+6161981 drwxrwxr-x 3 labuser labuser 4096 Dec 14 00:03 test1
+6030209 -rw-rw-r-- 1 labuser labuser   41 Dec 13 23:41 token
+6029418 drwxr-xr-x 2 labuser labuser 4096 Sep 12  2023 Videos
+labuser@labuser-virtual-machine:~$ cd sai82472
+bash: cd: sai82472: No such file or directory
+labuser@labuser-virtual-machine:~$ ls
+Desktop    Downloads    Music     Public  snap   Templates  token
+Documents  execute.yml  Pictures  repos   task1  test1      Videos
+labuser@labuser-virtual-machine:~$ ^C
+labuser@labuser-virtual-machine:~$ ^C
+labuser@labuser-virtual-machine:~$ ^C
+labuser@labuser-virtual-machine:~$ cd sai82472
+bash: cd: sai82472: No such file or directory
+labuser@labuser-virtual-machine:~$ cd test1
+labuser@labuser-virtual-machine:~/test1$ ls
+file1  file2  test1
+labuser@labuser-virtual-machine:~/test1$ mkdir dev1
+labuser@labuser-virtual-machine:~/test1$ cd dev1
+labuser@labuser-virtual-machine:~/test1/dev1$ get init
+Command 'get' not found, but there are 18 similar ones.
+labuser@labuser-virtual-machine:~/test1/dev1$ git init
+Initialized empty Git repository in /home/labuser/test1/dev1/.git/
+labuser@labuser-virtual-machine:~/test1/dev1$ git remote -v
+labuser@labuser-virtual-machine:~/test1/dev1$ git pull https://github.com/sai82472/task1.git
+remote: Enumerating objects: 6, done.
+remote: Counting objects: 100% (6/6), done.
+remote: Compressing objects: 100% (2/2), done.
+remote: Total 6 (delta 0), reused 6 (delta 0), pack-reused 0 (from 0)
+Unpacking objects: 100% (6/6), 420 bytes | 140.00 KiB/s, done.
+From https://github.com/sai82472/task1
+ * branch            HEAD       -> FETCH_HEAD
+labuser@labuser-virtual-machine:~/test1/dev1$ git branch
+* master
+labuser@labuser-virtual-machine:~/test1/dev1$ ls -li
+total 4
+6162110 -rw-rw-r-- 1 labuser labuser 6 Dec 14 00:12 test1
+labuser@labuser-virtual-machine:~/test1/dev1$ git branch m1
+labuser@labuser-virtual-machine:~/test1/dev1$ git checkout m1
+Switched to branch 'm1'
+labuser@labuser-virtual-machine:~/test1/dev1$ echo "apple">fruit
+labuser@labuser-virtual-machine:~/test1/dev1$ ls
+fruit  test1
+labuser@labuser-virtual-machine:~/test1/dev1$ git checkout master
+Switched to branch 'master'
+labuser@labuser-virtual-machine:~/test1/dev1$ ls
+fruit  test1
+labuser@labuser-virtual-machine:~/test1/dev1$ git checkout m1
+Switched to branch 'm1'
+labuser@labuser-virtual-machine:~/test1/dev1$ ls
+fruit  test1
+labuser@labuser-virtual-machine:~/test1/dev1$ git rebase master
+Current branch m1 is up to date.
+labuser@labuser-virtual-machine:~/test1/dev1$ 
