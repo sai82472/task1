@@ -1,0 +1,370 @@
+labuser@labuser-virtual-machine:~$ git --version
+git version 2.34.1
+labuser@labuser-virtual-machine:~$ mkdir test1
+mkdir: cannot create directory ‘test1’: File exists
+labuser@labuser-virtual-machine:~$ git init
+Reinitialized existing Git repository in /home/labuser/.git/
+labuser@labuser-virtual-machine:~$ git config --global init.defaultbranch master
+labuser@labuser-virtual-machine:~$ git init
+Reinitialized existing Git repository in /home/labuser/.git/
+labuser@labuser-virtual-machine:~$ echo "test1">test1
+bash: test1: Is a directory
+labuser@labuser-virtual-machine:~$ cd test1
+labuser@labuser-virtual-machine:~/test1$ git init
+Reinitialized existing Git repository in /home/labuser/test1/.git/
+labuser@labuser-virtual-machine:~/test1$ echo "test1">test1
+labuser@labuser-virtual-machine:~/test1$ ls
+dev1  file1  file2  test1
+labuser@labuser-virtual-machine:~/test1$ ls -li
+total 16
+6160945 drwxrwxr-x 3 labuser labuser 4096 Dec 14 00:13 dev1
+6160443 -rw-rw-r-- 1 labuser labuser    6 Dec 14 00:03 file1
+6160467 -rw-rw-r-- 1 labuser labuser    6 Dec 14 00:03 file2
+6162010 -rw-rw-r-- 1 labuser labuser    6 Dec 14 03:40 test1
+labuser@labuser-virtual-machine:~/test1$ git status
+On branch master
+Your branch is ahead of 'origin/master' by 1 commit.
+  (use "git push" to publish your local commits)
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   test1
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	dev1/
+
+no changes added to commit (use "git add" and/or "git commit -a")
+labuser@labuser-virtual-machine:~/test1$ git add .
+warning: adding embedded git repository: dev1
+hint: You've added another git repository inside your current repository.
+hint: Clones of the outer repository will not contain the contents of
+hint: the embedded repository and will not know how to obtain it.
+hint: If you meant to add a submodule, use:
+hint: 
+hint: 	git submodule add <url> dev1
+hint: 
+hint: If you added this path by mistake, you can remove it from the
+hint: index with:
+hint: 
+hint: 	git rm --cached dev1
+hint: 
+hint: See "git help submodule" for more information.
+labuser@labuser-virtual-machine:~/test1$ git commit -m 'my push'
+[master abd7c4e] my push
+ 2 files changed, 2 insertions(+), 1 deletion(-)
+ create mode 160000 dev1
+labuser@labuser-virtual-machine:~/test1$ git remote add origin https://github.com/sai82472/task1.git
+error: remote origin already exists.
+labuser@labuser-virtual-machine:~/test1$ git remote -v
+origin	https://github.com/sai82472/task1.git (fetch)
+origin	https://github.com/sai82472/task1.git (push)
+labuser@labuser-virtual-machine:~/test1$ git push -u origin master
+Username for 'https://github.com': sai2472
+Password for 'https://sai2472@github.com': 
+Enumerating objects: 9, done.
+Counting objects: 100% (9/9), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (4/4), done.
+Writing objects: 100% (7/7), 568 bytes | 568.00 KiB/s, done.
+Total 7 (delta 1), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (1/1), done.
+To https://github.com/sai82472/task1.git
+   c5a1472..abd7c4e  master -> master
+Branch 'master' set up to track remote branch 'master' from 'origin'.
+labuser@labuser-virtual-machine:~/test1$ ls
+dev1  file1  file2  test1
+labuser@labuser-virtual-machine:~/test1$ nano test1
+labuser@labuser-virtual-machine:~/test1$ git add .
+labuser@labuser-virtual-machine:~/test1$ git commit -m 'my push2'
+[master 66eac9f] my push2
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+labuser@labuser-virtual-machine:~/test1$ git push -u origin master
+Username for 'https://github.com': sai82472
+Password for 'https://sai82472@github.com': 
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 269 bytes | 269.00 KiB/s, done.
+Total 3 (delta 1), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+To https://github.com/sai82472/task1.git
+   abd7c4e..66eac9f  master -> master
+Branch 'master' set up to track remote branch 'master' from 'origin'.
+labuser@labuser-virtual-machine:~/test1$ git branch
+  devops1
+* master
+labuser@labuser-virtual-machine:~/test1$ git branch devops2
+labuser@labuser-virtual-machine:~/test1$ git checkout devops2
+M	dev1
+Switched to branch 'devops2'
+labuser@labuser-virtual-machine:~/test1$ git branch
+  devops1
+* devops2
+  master
+labuser@labuser-virtual-machine:~/test1$ echo "test5">file3
+labuser@labuser-virtual-machine:~/test1$ echo "test6
+> cd
+> 
+> 
+> 
+> 
+> 
+> 
+> 
+> echo "test6
+cd
+
+
+
+
+
+
+cd test1
+test6
+cd
+
+
+
+
+
+
+
+echo test6
+labuser@labuser-virtual-machine:~/test1$ echo "test5">file3
+labuser@labuser-virtual-machine:~/test1$ echo "test6">file4
+labuser@labuser-virtual-machine:~/test1$ ls -li
+total 24
+6160945 drwxrwxr-x 3 labuser labuser 4096 Dec 14 00:13 dev1
+6160443 -rw-rw-r-- 1 labuser labuser    6 Dec 14 00:03 file1
+6160467 -rw-rw-r-- 1 labuser labuser    6 Dec 14 00:03 file2
+6162008 -rw-rw-r-- 1 labuser labuser    6 Dec 14 03:50 file3
+6162129 -rw-rw-r-- 1 labuser labuser    6 Dec 14 03:50 file4
+6162010 -rw-rw-r-- 1 labuser labuser    7 Dec 14 03:44 test1
+labuser@labuser-virtual-machine:~/test1$ git add.
+git: 'add.' is not a git command. See 'git --help'.
+
+The most similar command is
+	add
+labuser@labuser-virtual-machine:~/test1$ git add .
+labuser@labuser-virtual-machine:~/test1$ git commit -m "change5"
+[devops2 5978cfb] change5
+ 2 files changed, 2 insertions(+)
+ create mode 100644 file3
+ create mode 100644 file4
+labuser@labuser-virtual-machine:~/test1$ git push origin -u devops2
+Username for 'https://github.com': sai82472
+Password for 'https://sai82472@github.com': 
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (4/4), 404 bytes | 404.00 KiB/s, done.
+Total 4 (delta 0), reused 0 (delta 0), pack-reused 0
+remote: 
+remote: Create a pull request for 'devops2' on GitHub by visiting:
+remote:      https://github.com/sai82472/task1/pull/new/devops2
+remote: 
+To https://github.com/sai82472/task1.git
+ * [new branch]      devops2 -> devops2
+Branch 'devops2' set up to track remote branch 'devops2' from 'origin'.
+labuser@labuser-virtual-machine:~/test1$ git branch
+  devops1
+* devops2
+  master
+labuser@labuser-virtual-machine:~/test1$ git checkout master
+M	dev1
+Switched to branch 'master'
+Your branch is up to date with 'origin/master'.
+labuser@labuser-virtual-machine:~/test1$ git merge devops2
+Updating 66eac9f..5978cfb
+Fast-forward
+ file3 | 1 +
+ file4 | 1 +
+ 2 files changed, 2 insertions(+)
+ create mode 100644 file3
+ create mode 100644 file4
+labuser@labuser-virtual-machine:~/test1$ git log -p
+commit 5978cfbeabca446bd07ee6e0d669761131d6f613 (HEAD -> master, origin/devops2, devops2)
+Author: David Robichaud <david.robichaud@skillsoft.com>
+Date:   Sat Dec 14 03:51:22 2024 -0500
+
+    change5
+
+diff --git a/file3 b/file3
+new file mode 100644
+index 0000000..4f346f1
+--- /dev/null
++++ b/file3
+@@ -0,0 +1 @@
++test5
+diff --git a/file4 b/file4
+new file mode 100644
+index 0000000..8390c32
+--- /dev/null
++++ b/file4
+@@ -0,0 +1 @@
++test6
+
+commit 66eac9fe78d2c4f49c3726b3684df85ac25ed7eb (origin/master)
+Author: David Robichaud <david.robichaud@skillsoft.com>
+Date:   Sat Dec 14 03:45:51 2024 -0500
+
+    my push2
+
+diff --git a/test1 b/test1
+index a5bce3f..4a19b05 100644
+--- a/test1
++++ b/test1
+@@ -1 +1,2 @@
+-test1
++test2
++
+
+commit abd7c4e7ae4969e3c3bcb892b5122ab5146f12e6
+Author: David Robichaud <david.robichaud@skillsoft.com>
+Date:   Sat Dec 14 03:41:14 2024 -0500
+
+    my push
+
+diff --git a/dev1 b/dev1
+new file mode 160000
+index 0000000..c5a1472
+--- /dev/null
++++ b/dev1
+@@ -0,0 +1 @@
++Subproject commit c5a14724be199ba6f59c65192b2da8acacc4e3f1
+diff --git a/test1 b/test1
+index 180cf83..a5bce3f 100644
+--- a/test1
++++ b/test1
+@@ -1 +1 @@
+-test2
++test1
+
+commit 0bc6d99cfed992b041460fe39998c3c8abb7e568 (origin/devops1, devops1)
+Author: David Robichaud <david.robichaud@skillsoft.com>
+Date:   Sat Dec 14 00:01:25 2024 -0500
+
+    change4
+
+diff --git a/file1 b/file1
+new file mode 100644
+index 0000000..df6b0d2
+--- /dev/null
++++ b/file1
+@@ -0,0 +1 @@
++test3
+diff --git a/file2 b/file2
+new file mode 100644
+index 0000000..d234c5e
+--- /dev/null
++++ b/file2
+@@ -0,0 +1 @@
++test4
+
+commit c5a14724be199ba6f59c65192b2da8acacc4e3f1
+Author: David Robichaud <david.robichaud@skillsoft.com>
+Date:   Fri Dec 13 23:43:36 2024 -0500
+
+Date:   Sat Dec 14 00:01:25 2024 -0500
+
+    change4
+
+diff --git a/file1 b/file1
+new file mode 100644
+index 0000000..df6b0d2
+--- /dev/null
++++ b/file1
+@@ -0,0 +1 @@
++test3
+diff --git a/file2 b/file2
+new file mode 100644
+index 0000000..d234c5e
+--- /dev/null
++++ b/file2
+@@ -0,0 +1 @@
++test4
+
+commit c5a14724be199ba6f59c65192b2da8acacc4e3f1
+Author: David Robichaud <david.robichaud@skillsoft.com>
+Date:   Fri Dec 13 23:43:36 2024 -0500
+
+labuser@labuser-virtual-machine:~/test1$ git log --oneline
+5978cfb (HEAD -> master, origin/devops2, devops2) change5
+66eac9f (origin/master) my push2
+abd7c4e my push
+0bc6d99 (origin/devops1, devops1) change4
+c5a1472 change2
+27609a2 change1
+labuser@labuser-virtual-machine:~/test1$ cd
+labuser@labuser-virtual-machine:~$ git clone https://github.com/sai82472/task1.git
+fatal: destination path 'task1' already exists and is not an empty directory.
+labuser@labuser-virtual-machine:~$ ls -li
+total 72
+6029410 drwxr-xr-x 2 labuser labuser  4096 Sep 12  2023  Desktop
+6029414 drwxr-xr-x 3 labuser labuser  4096 Dec 15  2023  Documents
+6029411 drwxr-xr-x 2 labuser labuser  4096 Dec 18  2023  Downloads
+6036475 -rw-rw-r-- 1 labuser labuser    53 Dec 18  2023  execute.yml
+6029415 drwxr-xr-x 2 labuser labuser  4096 Sep 12  2023  Music
+6029416 drwxr-xr-x 2 labuser labuser  4096 Sep 12  2023  Pictures
+6031858 -rw-rw-r-- 1 labuser labuser 16305 Dec 14 00:16 'programming fundamentals task1'
+6029413 drwxr-xr-x 2 labuser labuser  4096 Sep 12  2023  Public
+6030259 drwxrwxr-x 2 labuser labuser  4096 Dec 18  2023  repos
+6029322 drwx------ 6 labuser labuser  4096 Dec 15  2023  snap
+6030309 drwxrwxr-x 3 labuser labuser  4096 Dec 14 00:04  task1
+6029412 drwxr-xr-x 2 labuser labuser  4096 Sep 12  2023  Templates
+6161981 drwxrwxr-x 4 labuser labuser  4096 Dec 14 03:53  test1
+6030209 -rw-rw-r-- 1 labuser labuser    41 Dec 13 23:41  token
+6029418 drwxr-xr-x 2 labuser labuser  4096 Sep 12  2023  Videos
+labuser@labuser-virtual-machine:~$ cd task1
+labuser@labuser-virtual-machine:~/task1$ ls
+test1
+labuser@labuser-virtual-machine:~/task1$ mkdir dev2
+labuser@labuser-virtual-machine:~/task1$ cd dev2
+labuser@labuser-virtual-machine:~/task1/dev2$ cd
+labuser@labuser-virtual-machine:~$ cd dev2
+bash: cd: dev2: No such file or directory
+labuser@labuser-virtual-machine:~$ mkdir dev2
+labuser@labuser-virtual-machine:~$ cd dev2
+labuser@labuser-virtual-machine:~/dev2$ git init
+Initialized empty Git repository in /home/labuser/dev2/.git/
+labuser@labuser-virtual-machine:~/dev2$ git pull https://github.com/sai82472/task1.git master
+remote: Enumerating objects: 15, done.
+remote: Counting objects: 100% (15/15), done.
+remote: Compressing objects: 100% (6/6), done.
+remote: Total 15 (delta 2), reused 15 (delta 2), pack-reused 0 (from 0)
+Unpacking objects: 100% (15/15), 1.13 KiB | 580.00 KiB/s, done.
+From https://github.com/sai82472/task1
+ * branch            master     -> FETCH_HEAD
+labuser@labuser-virtual-machine:~/dev2$ git branch
+* master
+labuser@labuser-virtual-machine:~/dev2$ ls -li
+total 16
+6032424 drwxrwxr-x 2 labuser labuser 4096 Dec 14 03:58 dev1
+6032425 -rw-rw-r-- 1 labuser labuser    6 Dec 14 03:58 file1
+6032426 -rw-rw-r-- 1 labuser labuser    6 Dec 14 03:58 file2
+6032427 -rw-rw-r-- 1 labuser labuser    7 Dec 14 03:58 test1
+labuser@labuser-virtual-machine:~/dev2$ git branch m2
+labuser@labuser-virtual-machine:~/dev2$ git checkout m2
+Switched to branch 'm2'
+labuser@labuser-virtual-machine:~/dev2$ echo "bannana">fruit
+labuser@labuser-virtual-machine:~/dev2$ ls
+dev1  file1  file2  fruit  test1
+labuser@labuser-virtual-machine:~/dev2$ git checkout m2
+Already on 'm2'
+labuser@labuser-virtual-machine:~/dev2$ git checkout master
+Switched to branch 'master'
+labuser@labuser-virtual-machine:~/dev2$ ls
+dev1  file1  file2  fruit  test1
+labuser@labuser-virtual-machine:~/dev2$ git checkout m2
+Switched to branch 'm2'
+labuser@labuser-virtual-machine:~/dev2$ ls
+dev1  file1  file2  fruit  test1
+labuser@labuser-virtual-machine:~/dev2$ git rebase master
+Current branch m2 is up to date.
+labuser@labuser-virtual-machine:~/dev2$ 
+
+
