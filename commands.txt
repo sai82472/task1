@@ -1,0 +1,130 @@
+->mysql> create database book_catalog;
+  Query OK, 1 row affected (0.07 sec)
+
+->mysql> use book_catalog;
+  Database changed
+
+->mysql> create table publishers(publisher_id int PRIMARY KEY,publisher_name varchar(200) NOT NULL);
+  Query OK, 0 rows affected (0.58 sec)
+
+->insert into publishers values(656,'krishna_kumar'),(987,'lakshmi_kumari'),(321,'suhail');
+  Query OK, 3 rows affected (0.06 sec)
+ Records: 3  Duplicates: 0  Warnings: 0
+
+->select * from publishers;
++--------------+----------------+
+| publisher_id | publisher_name |
++--------------+----------------+
+|          321 | suhail         |
+|          656 | krishna_kumar  |
+|          987 | lakshmi_kumari |
++--------------+----------------+
+3 rows in set (0.00 sec)
+
+
+->mysql> create table categories(category_id int PRIMARY KEY,category_name varchar(200) UNIQUE KEY NOT NULL);
+  Query OK, 0 rows affected (0.38 sec)
+
+->insert into categories values(2587,'science'),(3698,'math'),(321,'english');
+  Query OK, 3 rows affected (0.06 sec)
+  Records: 3  Duplicates: 0  Warnings: 0
+
+->mysql> select * from categories;
+ +-------------+---------------+
+ | category_id | category_name |
+ +-------------+---------------+
+ |         321 | english       |
+ |        3698 | math          |
+ |        2587 | science       |
+ +-------------+---------------+
+ 3 rows in set (0.00 sec)
+ 
+
+->mysql> create table books(book_id int PRIMARY KEY,title varchar(150) NOT NULL,ISBN int UNIQUE KEY NOT NULL,publication_year int NOT NULL,publisher_id int,category_id int,FOREIGN KEY(publisher_id)REFERENCES publishers(publisher_id) ON DELETE CASCADE,FOREIGN KEY(category_id)REFERENCES categories(category_id) ON DELETE CASCADE,author_name varchar(300) CHECK(author_name != Null));
+  Query OK, 0 rows affected (0.47 sec)
+
+
+->insert into books values(6545,'atom_thory',4565,2001,656,2587,'gaurav_mishra'),(8798,'algebra',9865,2005,987,3698,'albert'),(9876,'pronuncations',6549,2000,321,321,'austin');
+  Query OK, 3 rows affected (0.06 sec) 
+  Records: 3  Duplicates: 0  Warnings: 0
+
+select * from books;
++---------+---------------+------+------------------+--------------+-------------+---------------+
+| book_id | title         | ISBN | publication_year | publisher_id | category_id | author_name   |
++---------+---------------+------+------------------+--------------+-------------+---------------+
+|    6545 | atom_thory    | 4565 |             2001 |          656 |        2587 | gaurav_mishra |
+|    8798 | algebra       | 9865 |             2005 |          987 |        3698 | albert        |
+|    9876 | pronuncations | 6549 |             2000 |          321 |         321 | austin        |
++---------+---------------+------+------------------+--------------+-------------+---------------+
+3 rows in set (0.00 sec)
+
+
+->mysql> create table users(user_id int PRIMARY KEY,user_name varchar(150) NOT NULL,email varchar(200) UNIQUE KEY NOT NULL,phone_no int UNIQUE KEY NOT NULL);
+  Query OK, 0 rows affected (0.88 sec)
+
+
+
+->insert into users values(20,'sai','sai@one',1236547890),(50,'lakshman','laki@two',9874563210),(15,'rani','rani@queen','2589637410');
+
+select * from users;
++---------+-----------+------------+----------+
+| user_id | user_name | email      | phone_no |
++---------+-----------+------------+----------+
+|      15 | rani      | rani@queen |  2589637 |
+|      20 | sai       | sai@one    |   123650 |
+|      50 | lakshman  | laki@two   |    98745 |
++---------+-----------+------------+----------+
+3 rows in set (0.00 sec)
+
+
+
+
+->create table borrowings(borrow_id int PRIMARY KEY,user_id int,book_id int,FOREIGN KEY(user_id)REFERENCES users(user_id) ON DELETE CASCADE,FOREIGN KEY(book_id)REFERENCES books(book_id) ON DELETE CASCADE,borrow_date DATE,return_date DATE);
+  Query OK, 0 rows affected (1.07 sec)
+
+
+->insert into borrowings values(6546,20,9876,'12-12-24','12-01-25'),(4452,50,6545,'15-11-24','15-12-25'),(7889,15,8798,'30-11-24','30-12-25');
+  Query OK, 3 rows affected (0.06 sec)
+  Records: 3  Duplicates: 0  Warnings: 0
+
+ select * from borrowings;
++-----------+---------+---------+-------------+-------------+
+| borrow_id | user_id | book_id | borrow_date | return_date |
++-----------+---------+---------+-------------+-------------+
+|      4452 |      50 |    6545 | 2015-11-24  | 2015-12-25  |
+|      6546 |      20 |    9876 | 2012-12-24  | 2012-01-25  |
+|      7889 |      15 |    8798 | 2030-11-24  | 2030-12-25  |
++-----------+---------+---------+-------------+-------------+
+3 rows in set (0.00 sec)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
