@@ -98,13 +98,31 @@ select * from users;
 3 rows in set (0.00 sec)
 
 
+SELECT
+         b.book_id, b.title, b.ISBN, b.publication_year, b.publisher_id,b.category_id,
+         p.publisher_name, c.category_name, b.author_name,
+         u.user_name, u.email, u.phone_no,
+         bo.borrow_date, bo.return_date,u.user_id,bo.borrow_id
+     FROM
+         borrowings bo
+     JOIN
+         books b ON bo.book_id = b.book_id
+     JOIN
+         publishers p ON b.publisher_id = p.publisher_id
+     JOIN
+         categories c ON b.category_id = c.category_id
+     JOIN
+         users u ON bo.user_id = u.user_id;
 
 
-
-
-
-
-
++---------+---------------+------+------------------+--------------+-------------+----------------+---------------+---------------+-----------+------------+----------+-------------+-------------+---------+-----------+
+| book_id | title         | ISBN | publication_year | publisher_id | category_id | publisher_name | category_name | author_name   | user_name | email      | phone_no | borrow_date | return_date | user_id | borrow_id |
++---------+---------------+------+------------------+--------------+-------------+----------------+---------------+---------------+-----------+------------+----------+-------------+-------------+---------+-----------+
+|    8798 | algebra       | 9865 |             2005 |          987 |        3698 | lakshmi_kumari | math          | albert        | rani      | rani@queen |  2589637 | 2030-11-24  | 2030-12-25  |      15 |      7889 |
+|    9876 | pronuncations | 6549 |             2000 |          321 |         321 | suhail         | english       | austin        | sai       | sai@one    |   123650 | 2012-12-24  | 2012-01-25  |      20 |      6546 |
+|    6545 | atom_thory    | 4565 |             2001 |          656 |        2587 | krishna_kumar  | science       | gaurav_mishra | lakshman  | laki@two   |    98745 | 2015-11-24  | 2015-12-25  |      50 |      4452 |
++---------+---------------+------+------------------+--------------+-------------+----------------+---------------+---------------+-----------+------------+----------+-------------+-------------+---------+-----------+
+3 rows in set (0.00 sec)
 
 
 
