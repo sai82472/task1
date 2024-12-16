@@ -1,0 +1,153 @@
+                   day 1
+                                     PROGRAMMING FUNDAMENTALS
+SDLC-software development life cycle
+              * SLDC is a structured process used for development of software applications.
+              * The goal of the SDLC is to produce high-quality software that meets or 
+                 exceeds customer expectations, reaches completion within times and cost 
+                 estimates, and works efficiently and effectively in the current and planned IT 
+                 infrastructure.
+              * It involves several phases, each with specific tasks and objectives. They are
+                 1. planning
+                 2. Requirement analysis
+                 3. Design
+                 4. Implement(coding)
+                 5. Testing
+                 6. Deployment
+                 7. Maintenace
+                 8. Evaluation(feedback)
+              * The main models of SDLC are: 1. Waterfall model, 2. Align model, 3. prototype 
+                  1. Waterfall Model
+                ---------------------------------------
+                     Sequential Process:
+                    1)Follows a linear and sequential approach.
+                    2)Each phase must be completed before the next one begins.
+                --------------------------------------------
+                   Phases: -
+                      ->Requirements
+                      ->Design
+                      ->Implementation
+                      ->Verification
+                      ->Maintenance
+                      ->Documentation:
+                      ->Extensive documentation is created before starting the development 
+                          phase. Changes are difficult and costly to implement after the project 
+                          has started.
+                      ->Testing:
+                          Performed only after the development phase is complete.
+                          Issues found late can be more costly to fix.
+                      ->Flexibility:
+                          Less flexible and adaptive to changes.
+                          Best suited for projects with well-defined requirements and minimal 
+                          expected changes.
+
+                2. Agile Model
+               --------------------------------------------------
+                  Iterative and Incremental Process:
+                  Focuses on iterative development, with cycles called sprints 
+                  (typically, 2-4 weeks).
+                  Each iteration delivers a potentially shippable product increment.
+              -------------------------------------------------
+                Phases:
+                 ->Involves continuous cycles of planning, designing, coding, testing, and 
+                     reviewing.
+                 ->Documentation:
+                      Less emphasis on documentation, more focus on working software.
+                      Documentation evolves as the project progresses.
+                 ->Project Scope:
+                      Scope can evolve as the project progresses.
+                      Allows for changes based on stakeholder feedback and market demands.
+                 ->Testing:
+                      Continuous testing throughout the development process.
+                      Issues are identified and resolved early, reducing the cost of fixing them.
+                 ->Flexibility:
+                      Highly flexible and adaptive to changes.
+                      Ideal for projects with dynamic requirements and a need for rapid 
+                      delivery.
+------------------------------------------------------------------------------------------------
+Key Differences
+_>Approach: Waterfall is linear and sequential, while Agile is iterative and incremental.
+->Flexibility: Waterfall is rigid and less adaptable to changes, whereas Agile is flexible 
+    and adaptive.
+->Documentation: Waterfall requires extensive documentation upfront; Agile focuses on 
+    minimal documentation with evolving requirements.
+->Testing: Waterfall conducts testing after development; Agile integrates testing 
+    throughout the development process.
+->Customer Involvement: Waterfall involves customers mainly at the beginning and end, 
+    while Agile involves customers continuously.
+-------------------------------------------------------------------------------------------------
+->Waterfall: Suitable for projects with well-defined requirements, minimal expected 
+                    changes, and where a sequential process is more effective (e.g., construction 
+                    projects).
+->Agile: Suitable for projects with dynamic requirements, a need for flexibility, and rapid 
+              delivery (e.g., software development, tech startups).
+->Each methodology has its strengths and is suited to different types of projects and or 
+    generational environments.
+-------------------------------------------------------------------------------------------------
+3. A prototype model is an early-stage representation or version of a system, product, or 
+    concept, built to test and validate ideas, gather feedback, or demonstrate 
+    functionality. It helps stakeholders visualize the final design and identify areas for 
+    improvement before full-scale development. The term can apply to various fields, 
+    including engineering, design, software development, and business.
+ * Characteristics of a Prototype Model:
+  ->Simplified Version: Focuses on key functionalities rather than full details.
+  ->Iterative: Can evolve based on feedback and testing.
+  ->Low-Cost: Uses minimal resources compared to the final product.
+  ->Feedback-Oriented: Designed to elicit user input for refinements.
+------------------------------------------------------------------------------------------------
+Types of Prototypes:
+Throwaway Prototypes: Built quickly and discarded after feedback.
+Evolutionary Prototypes: Improved iteratively to evolve into the final product.
+Functional Prototypes: Mimic specific features or operations.
+Conceptual Prototypes: Focus on visualizing ideas rather than functionality.
+------------------------------------------------
+Applications:
+->Engineering: Test mechanical or structural concepts.
+->Software Development: Test user interfaces or algorithms (e.g., mockups, wireframes).
+->Product Design: Create physical models of products (e.g., 3D printing).
+->Business: Develop business models or service prototypes.
+---------------------------------------------------------------------------------------
+                                           QUESTIONS ON SDCL 
+Q1) what is advantage of proper planning in SDLC?
+       Clarity of Objectives and Scope,
+       Risk Management,
+       Resource Allocation and Management,
+       Timeline and Milestone Definition,
+       Quality Assurance and Testing Strategy,
+       Stakeholder Engagement and Communication,
+       Cost Management,
+       Adaptability and Flexibility
+-----------------------------------------------------------------
+Q2) What are different types of Prototype models: -?
+        Throwaway/Rapid Prototypes, 
+        Evolutionary Prototypes,
+        Incremental Prototypes,
+        Extreme Prototyping
+---------------------------------------------------------------------------
+Q3) When will frontend and backend developers both involved in SDLC?
+       development phase
+-----------------------------------------------------------------------------------------
+Q4) The Adaptive Maintenance phase in the Software Development Life Cycle (SDLC) refers to the process of modifying a software system to keep it usable in a changing environment. This involves making changes and enhancements to software to ensure it continues to operate correctly as the external environment evolves. These changes can be triggered by new business requirements, technological advancements, legislative changes, or user feedback.
+---------------------------------------------------------------------------------------------
+Q5) A prototyping model is a software development approach that involves creating an incomplete version of the software program being developed. This prototype is then used to visualize and understand the requirements, refine functionalities, and gather feedback from users and stakeholders early in the development process.
+--------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+                                                            day 2
+select date_sub(curdate(), internal 5 day) as resultdate;
+select date_add(curdate(), internal 5 day) as resultdate;
+
+
+
+
+
+set  autocommit=0; to turn off auto commit 
+set autocommit =1; to turn on auto commit by default it will be 1
