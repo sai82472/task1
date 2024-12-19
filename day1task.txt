@@ -1,0 +1,495 @@
+package org.Monthsdisplay;
+
+import java.util.Scanner;
+
+public class Months {
+	
+	int monthnum;
+	String month;
+	void input()
+	{
+		Scanner b = new Scanner(System.in);
+		System.out.println("enter monthnum from 1 to 12:");
+		monthnum = b.nextInt();
+	}
+	void output()
+	{
+	   String [] months= {"","january","february","march","april","may","june","july","august","september","october","november","december"};
+	   
+	   if (monthnum <0 || monthnum > 12) {
+		   System.out.println("invalid");
+	   }
+	   else
+	   {
+		   month = months[monthnum];
+		   System.out.println(" "+month);
+	   }
+	}
+	public static void main(String[] args) {
+		Months o = new Months();
+		o.input();
+		o.output();
+	}
+}
+
+
+
+
+
+
+
+
+package org.mathematical;
+
+import java.util.Scanner;
+
+public class mathematical {
+	double num1;
+	double num2;
+	char operator;
+	double result;
+	void input()
+	{
+		Scanner a = new Scanner(System.in);
+		System.out.println("enter num1 & num2 along with arthmetic operator(+,-,*,/):");
+		num1 = a.nextDouble();
+		num2 = a.nextDouble();
+		operator = a.next().charAt(0);
+	}
+	void output()
+	{
+		if (operator == '+') {
+			result = num1+num2;
+		}
+		else if (operator == '-') {
+			result = num1-num2;
+		}
+		else if (operator == '*') {
+			result = num1*num2;
+		}
+		else if (operator == '/') {
+			if (num2 == 0) {
+				System.out.println("invalid");
+				return;
+			}
+			result = num1/num2;
+		}
+		else {
+			System.out.println("invalid operator");
+			return;
+		}
+		System.out.println("result = "+result);
+	}
+public static void main(String[] args) {
+	mathematical d = new mathematical();
+	d.input();
+	d.output();
+}
+	
+}
+
+
+
+
+
+
+
+
+
+package org.Oddoreven;
+
+import java.util.Scanner;
+
+public class Oddoreven {
+	int num;
+	void input()
+	{
+		Scanner a = new Scanner(System.in);
+		System.out.println("enter a num:");
+		num = a.nextInt();
+	}
+	void output()
+	{
+		if (num%2 == 0) {
+			System.out.println("the given num is even");
+		}
+		else {
+			System.out.println("the given num is odd");
+		}
+	}
+	public static void main(String[] args) {
+		Oddoreven b = new Oddoreven();
+		b.input();
+		b.output();
+	}
+}
+
+
+
+
+package org.Largestof3;
+
+import java.util.Scanner;
+
+public class Largestof3 {
+        int a;
+        int b;
+        int c;
+        void input()
+        {
+        	Scanner d = new Scanner(System.in);
+        	System.out.println("enter a,b,c numbres:");
+        	a = d.nextInt();
+        	b = d.nextInt();
+        	c = d.nextInt();
+        }
+        void output()
+        {
+        	if (a>b && a>c) {
+        		System.out.println("the largest num is: "+a);
+        	}
+        	else if (b>a && b>c) {
+        		System.out.println("the largest num is: "+b);
+        	}
+        	else if (c>a && c>b) {
+        		System.out.println("the largest num is: "+c);
+        }
+        }
+        public static void main(String[] args) {
+			Largestof3 e = new Largestof3();
+			e.input();
+			e.output();
+		}
+}
+
+
+
+
+
+package org.factorial;
+
+import java.util.Scanner;
+
+public class factorial {
+	
+	int a,i;
+	int result = 1;
+	void input()
+	{
+		Scanner b = new Scanner(System.in);
+		System.out.println("enter a num:");
+		a = b.nextInt();
+	}
+	void output()
+	{
+		for (int i = 1 ; i <=a ; i++) {
+			result *=i;
+		}
+		System.out.println("the factoial of" +a+"is= "+result);
+	}
+	public static void main(String[] args) {
+		factorial c = new factorial();
+		c.input();
+		c.output();
+	}
+
+}
+
+
+
+
+
+package org.factorial;
+
+import java.util.Scanner;
+
+public class Factorial {
+
+    int a, result = 1;
+
+    void input() {
+        Scanner b = new Scanner(System.in);
+        System.out.println("Enter a number:");
+        a = b.nextInt();
+    }
+
+    void output() {
+        if (a == 0 || a == 1) {
+            result = 1;
+        } else {
+            result = calculateFactorial(a);
+        }
+        System.out.println("The factorial of " + a + " is: " + result);
+    }
+
+    int calculateFactorial(int num) {
+        if (num == 1) return 1;
+        return num * calculateFactorial(num - 1);
+    }
+
+    public static void main(String[] args) {
+        Factorial c = new Factorial();
+        c.input();
+        c.output();
+    }
+}
+
+
+
+package neon;
+
+import java.util.Scanner;
+
+public class Neon {
+	int a;
+	int result = 0;
+	void input()
+	{
+		Scanner b = new Scanner(System.in);
+		System.out.println("enter the num:");
+		a = b.nextInt();
+	}
+	void output()
+	{
+		int c = a*a;
+		while(c>0) {
+			result +=c%10;
+			c/=10;
+		}
+	if (result == a) {
+		System.out.println("the given num is neon");
+	}
+	else {
+		System.out.println("the given num is not neon");
+	}
+	
+
+}
+public static void main(String[] args) {
+	Neon d = new Neon();
+	d.input();
+	d.output();
+}
+}
+
+
+
+package org.Armstrong;
+
+import java.util.Scanner;
+
+public class Armstrong {
+	int num1,num2;
+	int result,reminder,temp,digits;
+	void input() {
+		Scanner a = new Scanner(System.in);
+		System.out.println("enter two numbers:");
+		num1 = a.nextInt();
+		num2 = a.nextInt();
+	}
+	 boolean isArmstrong(int num) {
+	        temp = num;
+	        result = 0;
+	        digits = 0;
+	        while (temp != 0) {
+	            temp /= 10;
+	            digits++;
+	        }
+	        temp = num;
+	        while (temp != 0) {
+	            reminder = temp % 10;
+	            result += Math.pow(reminder, digits); 
+	            temp /= 10;
+	        }
+	        return result == num;
+	    }
+	void output()
+	{
+		for (int i = num1; i <= num2; i++) {
+	        if (isArmstrong(i)) {
+	            System.out.println(i);
+	}
+}
+	}
+	public static void main(String[] args) {
+		Armstrong d = new Armstrong();
+		d.input();
+		d.output();
+	}
+}
+
+
+
+package org.Armstrong;
+
+import java.util.Scanner;
+
+public class Armstrong {
+    int num1, num2;
+    int result, reminder, temp, digits;
+
+    void input() {
+        Scanner a = new Scanner(System.in);
+        System.out.println("Enter two numbers:");
+        num1 = a.nextInt();
+        num2 = a.nextInt();
+    }
+
+    void output() {
+        for (int i = num1; i <= num2; i++) {
+            // Check if the number is Armstrong
+            temp = i;
+            result = 0;
+            digits = 0;
+            
+            // Count digits
+            while (temp != 0) {
+                temp /= 10;
+                digits++;
+            }
+
+            // Calculate Armstrong sum
+            temp = i;
+            while (temp != 0) {
+                reminder = temp % 10;
+                result += Math.pow(reminder, digits); 
+                temp /= 10;
+            }
+
+            // Use if-else to determine if the number is Armstrong
+            if (result == i) {
+                System.out.println(i + " is an Armstrong number.");
+            } else {
+                // Optional: Print if not Armstrong (you can remove this part if not needed)
+                // System.out.println(i + " is not an Armstrong number.");
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+        Armstrong d = new Armstrong();
+        d.input();
+        d.output();
+    }
+}
+
+
+
+
+package org.grades;
+
+import java.util.Scanner;
+public class Grades {
+	int num;
+	void input()
+	{
+		Scanner b = new Scanner(System.in);
+		System.out.println("enter marks:");
+		num = b.nextInt();
+	}
+	void output()
+	{
+		if (num>=60) {
+			System.out.println("A Grade");
+		}
+		else if (num>=45) {
+			System.out.println("B Grade");
+	}
+		else if (num>=35) {
+			System.out.println("c Grade");
+		}
+		else if (num<35) {
+			System.out.println("Fail");
+		}
+	}
+	public static void main(String[] args) {
+			Grades c = new Grades();
+			c.input();
+			c.output();
+		}
+}
+
+
+
+package org.Leapyear;
+
+import java.util.Scanner;
+
+public class Leapyear {
+	int a;
+	void input()
+	{
+		Scanner b = new Scanner(System.in);
+		System.out.println("enter the year:");
+		a = b.nextInt();
+	}
+	void output()
+	{
+		if (a%4==0) {
+			System.out.println("it is a leap year");
+		}
+		else {
+			System.out.println("it is a not leap year");
+		}
+	}
+	public static void main(String[] args) {
+		Leapyear c = new Leapyear();
+		c.input();
+		c.output();
+	}
+
+}
+
+
+
+
+
+package org.perimeter;
+
+import java.util.Scanner;
+
+public class perimeter {
+	int a;
+	int b;
+	int result =0;
+	void input()
+	{
+		Scanner c = new Scanner(System.in);
+		System.out.println("enter length and breadth:");
+		a = c.nextInt();
+		b = c.nextInt();
+	}
+
+	void output()
+	{
+		result=2*(a+b);
+		System.out.println("the perimeter is: "+result);
+	}
+	public static void main(String[] args) {
+		perimeter d = new perimeter();
+		d.input();
+		d.output();
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
