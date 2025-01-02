@@ -1,0 +1,184 @@
+jdk - java development kit 
+     used for convert java code into machine understandable byte code
+
+
+jre - java run time environment
+       uses to run in-built packages and files
+
+
+jvm - java virtual machine 
+       uses to run code  
+
+
+
+java - object-oriented programming 
+ 
+object - every object have many properties and behaviour 
+         to create an object we have to create a class first
+
+class - is a blueprint of object 
+
+
+
+
+  
+WRAPPER CLASS
+---------------
+
+for every primmetive type we are going to have a class for it.
+
+ ->changing of primmetive datatype to wrapper class 
+    ex: int num=7;
+        Integer num1=new Integer(num);//BOXING
+        Integer num1=num;//AUTOBOXING
+
+->changing wrapper to primmetive datatype 
+   ex: int num2=num1.intvalue();//UNBOXING
+        int num2 = num1;//AUTO UNBOXING
+
+->apart from this int provides us 
+  ex:String str='12;
+      int num3=Integer.parseInt(str);
+      System.out.println(num3*2);
+
+OPPS
+-----------------
+encapsulation: binding of data using methods and displaying only required value is called encapsulation
+                we can access data by using getter and setter methods.
+
+            ex: public int getage(){
+                     return;
+                     }
+                 public void setage(int age){
+                       this.age=age;
+                       }
+         THIS keyword is used  to represent the current object(the object which is calling the method)       
+
+constructor:
+
+constructor is special method where we assign values directly to the object
+it never returns anything 
+every time we create a new obj it will calls or create a constructor
+constructor name should be same as class name 
+ex:public Human(){
+        age=10;
+        name=sai;
+         }
+parametorized constructor is a constructor that takes values in the constructor
+   ex:public Human(int age,String name){
+        this.age=age;
+        this.name=name;
+         }
+
+
+naming convection:
+
+class name and interface -start with capital letter ex: class Book{
+variables and methods -marks,show()
+constants - all capital letters ex: PIE,BRAND
+to join two or more word we can use - camel casing ex: showMyMarks()
+constractor - ex:Human()
+
+
+INHERITANCE(copy of objects from parent calss to child class)(parent-child,super-sub,base-derived)
+-----------------------------
+in inheritance we use extends key word to copy parent class obj to child class
+      ex:class A{
+               System.out.println(" ");
+               }
+         class B extends A{
+                System.out.println(" ");
+
+TYPES OF INHERITANCE:
+1.single inheritance
+                      ex:class A{
+               System.out.println(" ");
+               }
+         class B extends A{
+                System.out.println(" ");
+2.multilevel inheritance
+                     ex:class A{
+               System.out.println(" ");
+               }
+         class B extends A{
+                System.out.println(" ");
+          class C extends B{
+                    System.out.println(" ");
+                        } 
+3.multiple inheritance is not worked in java 
+      because of AMBIGUITY
+ 
+--------------------------------------
+THIS & SUPER method in java ---in inheritance when ever you calls an object of a sub-class.
+                                 it will automatically calls the constructor of both super calss and sub-class
+ --------------------------------
+
+
+every constructor in java has a method even if we don't mention
+  super(); means call the constructor of super class.we have to mention explicitily super();
+if we want to call a particular or paramiteraized constructor we can use super(n)
+ this(); will execute the constructor of same class
+
+
+
+ POLYMORPHISM
+---------------------------------
+poly means "many",morphism means "behaviour".
+the same object or same reference have different behaviour how we create instance on it
+there are two types of polymorphism
+1.compile time polymorphism
+          bhaviour is defined at compile time it is called compile time polymorphism
+          it is ex: of overloading
+  overloading : same method name but different parameters
+             ex: add(int,int)
+                  add(int,int,int)
+ which method to execute will be decided at compile time
+                      
+2.run time polymorphism
+              bhaviour is defined at run time it is called run time polymorphism
+               it is ex: of overridding
+   overridding :same name with same parameters (inheritance)
+              ex:class A{
+                      add(int,int);
+                         }
+                  class B extends A{
+                       add(int,int);
+                         }
+
+         example of runtime polymorphism using dynamic method dispatch  
+
+                  class A{
+                        public void show(){
+                         System.out.println("in A show);
+                          }
+                         }
+                       class B extends A{
+                        public void show(){
+                         System.out.println("in B show);
+                          }
+                         }
+                         class C extends A{
+                        public void show(){
+                         System.out.println("in C show);
+                          }
+                         }
+
+                         public class Demo{
+                         public static void main(String[] args){
+                                   A obj= new A();
+                                     obj.show();
+                                      B obj= new B();
+                                     obj.show();
+                                       C obj= new C();
+                                     obj.show();
+                                   } }
+
+
+
+
+
+
+
+
+
+
