@@ -33,13 +33,36 @@ for every primmetive type we are going to have a class for it.
         Integer num1=num;//AUTOBOXING
 
 ->changing wrapper to primmetive datatype 
-   ex: int num2=num1.intvalue();//UNBOXING
+   ex: int num2=num1.intValue();//UNBOXING
         int num2 = num1;//AUTO UNBOXING
 
 ->apart from this int provides us 
   ex:String str='12;
       int num3=Integer.parseInt(str);
       System.out.println(num3*2);
+
+->What is the purpose of the valueOf() method in wrapper classes?
+
+A) It converts a primitive type to an object of the corresponding wrapper class.
+
+Java code to demonstrate wrapper class:
+java
+Copy code
+public class Test {
+    public static void main(String[] args) {
+        Integer i = Integer.valueOf(100);
+        System.out.println(i.toString()); 
+        System.out.println(i + 200);
+    }
+}
+Output:
+
+Copy code
+100
+300
+
+
+
 
 OPPS
 -----------------
@@ -172,6 +195,646 @@ there are two types of polymorphism
                                        C obj= new C();
                                      obj.show();
                                    } }
+
+Final keyword--(variable,method,class)
+---------------------
+final variable -- by using final keyword in front of a variable we can declare it as a un changable constant .that means it can't be changed 
+
+                   ex: final int num=10;
+
+final class ---  once we make a class final . that class can't perforem inheritance
+
+final method -- if we use final keyword befor the method it will stop the method overridding
+
+ 
+typecasting
+---------------------
+converting type of a value
+       ex: double d= 4.4;
+            int i = (int)d;
+there are two types 
+1.upcasting:   parent reference and child object
+               A obj = new B();
+                obj.show1();
+ 
+2.downcasting: child reference and parent object
+                 B obj1=(b)obj;
+                  obj1.show2();
+
+ 
+
+ABSTRACT keyword
+----------------------------
+for declearing a method we use abstract 
+         ex:public abstract void driv(); 
+
+we can only create a abstract method in abstract class 
+if you are extending abstract class you need to define it compulsary 
+we can't create a object of abstarct class.but can create a object of concreate class
+abstract class can have both abastract method and concreate methods
+can have multiple abstract methods 
+
+
+inner class
+----------------
+class A{
+    int age;
+    public void show(){
+        System.out.println("in show");
+    }
+static class B{
+    public void config(){
+        System.out.println("in config");
+    }
+}
+}
+public class Main{
+    public static void main(String a[]){
+        A obj=new A();
+        obj.show();
+         
+        A.B obj1= obj.new B();//WHEN INNER CLASS IS NOT STATIC 
+        A.B obj1=new A.B();//ONLY WHEN INNER CLASS IS STATIC
+        obj1.config();
+    }
+}
+
+Anonymous inner class
+--------------------------
+Anonymous -- something which does't have a name
+
+SYNTAX-Which of the following is the correct syntax to declare an anonymous class that extends a class?
+
+           A) new ClassName() { }
+
+
+              class A{
+    public void show(){
+        System.out.println("in show");
+    }
+    }
+// class B extends A{
+//     public void show(){
+//         System.out.println("in B show");
+//     }
+//     }
+public class Main{
+    public static void main(String a[]){
+        A obj = new A()
+{
+           public void show(){           //anonymous inner class 
+        System.out.println("in new show"); 
+           } 
+        };
+        obj.show();
+    }
+}
+if we want to implement abstract class and interface class only once then anonymous class is perfect for that 
+
+Which of the following is true about anonymous classes?
+
+A) They must extend a class or implement an interface.
+B) They can have constructors.
+C) They can access local variables, but those variables must be final.
+D) Both A and C.
+Answer: D
+
+
+
+
+INTERFACE
+----------------------------
+every method in interface is by default public abstaract method.even if youu don't mention they are abstract
+ interface only says what are the method to  display and we have to implement the methods 
+by using implements key we have to implement the interface methods.an dif we fail to implement all the methos of interface then the child class is also a abstract class
+
+interface A{
+    void show();
+    void config();
+}
+class B implements A{
+    public void show(){
+        System.out.println(" in show");
+    }
+    public void config(){
+        System.out.println("in config");
+    }
+}
+public class Main{
+    public static void main(String a[]){
+       A obj;
+       obj=new B();
+       obj.show();
+       obj.config();
+       
+    }
+}
+
+->all the variables inside the interface are final and static 
+-> interface don't have their memory in the heap.only implemented class have memory in the heap
+
+
+interface A{
+    int age=23;
+    String area="bangalore";
+    void show();
+    void config();
+}
+class B implements A{
+    public void show(){
+        System.out.println(" in show");
+    }
+    public void config(){
+        System.out.println("in config");
+    }
+}
+public class Main{
+    public static void main(String a[]){
+       A obj;
+       obj=new B();
+       obj.show();
+       obj.config();
+       System.out.println(A.area);
+    }
+}
+
+* one class can implements multiple interfaces ,but in abstract we can't
+ * class - class-> extends
+* class - interface->implements
+* interface- interface->extends
+
+
+Which of the following is true about interfaces in Java?
+
+A) An interface can have methods with implementation.
+B) An interface cannot have constants.
+C) A class can implement multiple interfaces.
+D) A class can extend multiple interfaces.
+Answer: C
+
+Which of the following is not allowed in an interface in Java?
+
+A) Method declarations
+B) Constructor declarations
+C) Constant declarations
+D) Static method declarations
+Answer: B
+
+
+
+
+
+
+
+Enum
+-------------
+Enum are named constants which we create as a objects
+
+enum Status{
+    running,failed,pending,success;
+}
+
+
+public class Main{
+    public static void main(String a[]){
+       Status s = Status.running;
+       System.out.println(s.ordinal());//gives how many values of enum
+      Status [] ss = Status.values;
+       System.out.println(ss[0]);//give position of values 
+       
+       for(Status s: ss){// prints all the values of enum
+           System.out.println(s);
+       }
+    }
+}
+
+->can't extend enum with other class
+
+
+Which method is implicitly present in all enum types in Java?
+
+A) values()
+B) ordinal()
+C) toString()
+D) All of the above
+
+Which method in Java enums returns the name of the constant in the enum?
+
+A) name()
+B) toString()
+C) valueOf()
+D) ordinal()
+Answer: A
+
+
+
+
+Functional interface
+-------------------------
+the interface that has only one method 
+this can be intiaded using lambda expression
+lambda expression
+-------------------------
+ex:A obj = ()->System.out.println("inshow");
+
+
+
+What is the main benefit of using lambda expressions in Java?
+
+A) To make code more verbose.
+B) To allow function pointers in Java.
+C) To enable functional programming features in Java.
+D) To enable method overloading.
+Answer: C
+
+Which functional interface is commonly used to represent lambda expressions in Java?
+
+A) Runnable
+B) Function
+C) Comparator
+D) ActionListener
+Answer: B
+
+Java code to demonstrate lambda expression with sorting:
+java
+Copy code
+import java.util.*;
+
+public class Test {
+    public static void main(String[] args) {
+        List<String> names = Arrays.asList("John", "Jane", "Paul", "Anna");
+        names.sort((a, b) -> a.compareTo(b));
+        System.out.println(names);
+    }
+}
+Output: [Anna, Jane, John, Paul]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1)to which class wait(),notify(),notifyAll() belongs to -
+
+ans:- java.lang.Object
+-------------------------------------------------------------------------------
+2)public class test1 
+{
+public static void main(String[] args) {
+int b=Integer.parseInt("123a");
+System.out.println("the value is "+b);
+}
+}
+
+ans:- NumberFormatException
+-----------------------------------------------------------------------------------
+3)
+
+public class foo 
+{
+int a=10;
+public static void main(String[] args) 
+{
+System.out.println("the value is "+a);
+}
+}
+
+ans:- compilation error
+--------------------------------------------------------------------------------
+4)no duplicate entry is allowed.
+ans :- set
+-----------------------------------------------------------------------
+5)sorted order  :- TreeMap
+------------------------------------------------------------------------
+6)user defined Exception :- throw
+-----------------------------------------------------------------------------
+7)arbitry thread move from wait pool to lock pool 
+
+ans :-notify
+-----------------------------------------------------------------------------------
+8)read(),close() will throw ans:- IOException
+------------------------------------------------------------------------------------
+9)create new file method throw which exception :-
+ans :- IOException
+--------------------------------------------------------------------------------
+10)primative data enter in file :- DataInputStream
+-----------------------------------------------------------------------------------
+11)
+int total=0;
+for(int i=0, j=10;total > 30;++i,--j)
+{
+total+=i+j;
+System.out.println(i+"   "+j);
+}
+System.out.println(total);
+}
+
+ans:- 0
+-------------------------------------------------------------------------------------
+12)transient  :- 
+
+int empno;
+String name,address;
+transient int phoneno;
+
+when you convert to object  by using serialization phone no will not be serialized.
+ans :- not be serialized.
+-----------------------------------------------------------------------------------
+13)runnable interface 
+
+public class abc implements runnable
+{
+public void run()
+{}
+}
+------------------------------------------------------------------
+14)interface can be nested
+----------------------------------------------------------------------------------
+15)int a[5] ;
+system.in.read(a[1])
+
+ans:- Compilation error
+-------------------------------------------------------------------------------------
+16)to execute thread one by one we use:-
+ans :- synchronized.
+------------------------------------------------------------------------------
+17)function to copy an array :- ans :- System.arraycopy
+----------------------------------------------------------------------------------------
+18)stack operation :-ans push and pop
+--------------------------------------------------------------------------------
+19)which collection is used to shrink the data :- 
+ans :- Java.Util.ArrayList
+------------------------------------------------------------------------------
+20)StringBuffer and StringBuilder 
+
+ans :-1)String Builder is not synchronized  and faster than StringBuffer.
+-------------------------------------------------------------------
+21)exception with FileDataWriting 
+ans :-FileNotFoundException
+
+----------------------------------------------------------
+22) 
+public class Test implements runnable
+{
+public void run()
+{
+System.out.println("Wipro call run()");
+}
+public static void main(String args[])
+{
+new Thread(new Test()).start();
+}}
+
+ans:-Wipro call run()
+
+--------------------------------------------------------
+23)
+HashSet ar=new HashSet();
+System.out.println(ar.add("abce"));
+System.out.println(ar.add("abcf"));
+System.out.println(ar.add("abcg"));
+System.out.println(ar.add("abce"));
+
+ans:- 
+true
+true
+true
+false
+------------------------------------
+24)
+setLoc= new HashSet();
+ setLoc.put("a",Integer(1));
+ setLoc.put("b",Integer(2));
+ setLoc.put("c",Integer(3));
+System.out.println(b);
+
+ans:- complile time error
+-----------------------------------------------
+25) interface methods can be declare as final, public and static
+--------------------------------------------------------------------------
+26)a class can implements more than one interface
+-----------------------------------------------------------------------------
+27)comparator is present int java.util   package
+-------------------------------------------------------------------
+28)
+public class Test implements runnable
+{
+public void run()
+{
+sop("foo");
+}
+public void run(String s)
+{
+sop("bar");
+}}
+ public static void main(String args())
+{
+Thread ob=new Thread(new Test())
+ob.start();
+}
+------------------
+ans:-foo
+----------------------------------------------------------------------------------
+29)what does replace do ?
+It will replace all the occurace by invoking the string with another character 
+-----------------------------------------------------------------------------------------
+30)
+FileInputStream fin;
+int c=0;
+while(c=fin.eof()!= -1)
+{
+fin=new FileInputStream(args[0]);
+((char)c));
+}
+
+ans:- TypeCast Error
+-----------------------------------------------------------
+1)User-defined exceptions in Java are typically unchecked exceptions.
+-----------------------------------------------------------------------------------------------------------------------------
+2)Q: 31Given:
+ interface Jumper { public void jump(); }
+...
+ class Animal {}
+...
+ class Dog extends Animal {
+ Tail tail;
+ }
+...
+ class Beagle extends Dog implements Jumper{
+ public void jump() {}  }
+...
+ class Cat implements Jumper{
+ public void jump() {}
+ }
+Which three are true? (Choose three.)
+
+A. Cat is-a Animal
+B. Cat is-a Jumper
+C. Dog is-a Animal
+D. Dog is-a Jumper
+E. Cat has-a Animal
+F. Beagle has-a Tail
+G. Beagle has-a Jumper
+
+Answer: B, C, F
+---------------------------------------------------------------------------------------------------
+3)public class Program1 
+{
+public static void main(String[] args) 
+{
+Runnable r1=new Runnable()
+{
+@Override
+public void run() {
+System.out.println("This is a run method");
+}
+};
+Thread t1=new Thread(r1);
+t1.start();
+Runnable r2=()->
+{
+System.out.println("My name is Sandip");
+};
+Thread t2=new Thread(r2);
+t2.start();
+}
+}
+--------------------------------------------------------------------------
+1)byte range---
+	(-128 to 127)
+2) user defined exceptions that extends exception class----
+	(unchecked exception)
+3)which of the following is not checked exception---
+	(ArthimaticException)
+4) Binary Search Time Complexity---
+	(Ologn)
+5) which of the following keywords are not used for exception handling---
+	(Access, exception)
+6) printer question----
+	(Mathews,Suzanne,John Queue)
+7) public class Fisherman if(f is instance of p)--- 
+	(f-p,w-f)
+8) Local repositorty stores --- 
+	(${Local.home}/m2/repository))
+9) which sorting will has two sub lists---
+	(selection sort)
+10) which concept will hide some info and only show essential info----
+	(Abstraction)
+11) which access modifier is used when u do not inherit the class by other and which keyword is used to create interface---
+	(final, interface)
+12) which of the following method is used for instantiating objects of a class----
+	(constructor)
+13) which of the following methods can be accesed using method reference----
+	(static methods, instance methods)
+14) which of the following is relevant to transient ---- 
+	(serialization)
+15) by which of the following we can achieve synchronization---
+	(Synchronized methods, synchronized block)
+16) Thread(isAlive()) ---- 
+	(false)
+17) Bank question ---- 
+	thread synchronization
+18) in which line the code has error for counting the no.of ele in linkedlist---
+	(int count=1)
+19) meth() function question --- 
+	(42, 3, 12)
+20) Exception handling code---
+	(Exception for parent class exception is caught before the child class)
+21) Files Question of "Hello world"
+	 ----(H)
+22) which interface is not allowed duplicates values and should be print natural order---
+	(Set)
+23) which is the function works on map---
+	(put())
+24) which elements are used to identify a dependent artifact in a pom.xml file? 
+	(version, groupid, artifactid)
+25) what is true about mvn clean? 
+	(It cleans up artifacts created by prior builds)
+26) which of the following scope is used only when the dependency is of pom type? 
+	(import)
+27) which plugin uses the information in the pom to determine the proper location for the artifact within the local repository? 
+	(maven-install-plugin)
+28) JVM is not able to to allocate memory to create object Question? 
+	(Jvm will throw error and program abort as this situation cannot be handled by programming)
+29) Boxing----
+	Integer.valueOf(10)
+30) List.add("paper") ---- 
+	(A Runtime Exception is thrown )
+31) vanilla, chocolate ?
+	An arrayOutofboundsException
+32) Interface Jumper---
+	cat is a jumper, dog is a animal, Beagle has a tail
+33) List.set(0, "Data Structures")
+	Compilation Error: cannot convert from Object to boolean in line 2
+34) public class score  implements Comparable() ----
+	public int compareTo(Score other){/more code here/}
+35) One question regarding date?
+	LocalDate currentdate = new LocalDate.now()
+36) thread t = new Thread() System.out.println(t.isAlive())	
+	false
+37) what are the eligible metods for interfaces? (search for answer)
+	boolean getAmount(boolean[] args) 
+	public static void main(String[]) args
+	public void main(String[] args)
+	protected void getAmount();
+	private double getAmout()
+ 
+38) public static threads extends Thread{
+	public static void main(String[] args){
+	Thread t = Thread.currentThread();
+	System.out.println(t);
+	}
+	}
+	ans: Thread[main, 5, main]
+39) which method is required for loading a database driver in jdbc?
+	class.forName() or registerDriver()
+40) which of the following is used to limit the number of rows returned?
+	setMaxRows(int i)
+41) what is the return type of the hashCode()?
+	int
+------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
 
 
 
