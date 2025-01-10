@@ -1,148 +1,199 @@
-->mysql> create database book_catalog;
-  Query OK, 1 row affected (0.07 sec)
+1)Which of the following statement is not correct about HTTP method ?
+ans)A POST request append data to the end of the URL.
 
-->mysql> use book_catalog;
-  Database changed
+2)Servlet runs each request in a __________
+ans)Separate thread
 
-->mysql> create table publishers(publisher_id int PRIMARY KEY,publisher_name varchar(200) NOT NULL);
-  Query OK, 0 rows affected (0.58 sec)
+3)GenericServlet class is encapsulated inside __________ package ?
+ans)javax.servlet
 
-->insert into publishers values(656,'krishna_kumar'),(987,'lakshmi_kumari'),(321,'suhail');
-  Query OK, 3 rows affected (0.06 sec)
- Records: 3  Duplicates: 0  Warnings: 0
+4)Which class provide implementation for service() method ?
+ans)HttpServlet
 
-->select * from publishers;
-+--------------+----------------+
-| publisher_id | publisher_name |
-+--------------+----------------+
-|          321 | suhail         |
-|          656 | krishna_kumar  |
-|          987 | lakshmi_kumari |
-+--------------+----------------+
-3 rows in set (0.00 sec)
+5)_________ is responsible for managing execution of servlet?
+ans)Web Container
+
+6)When using HTML forms which of the following is true for POST method ?
+ans)POST method sends data in the body of the request.
+
+7)Deployment Descriptor(DD) is a _________ ?
+ans)XML document that is used by Web Container to run servlets and JSPs.
 
 
-->mysql> create table categories(category_id int PRIMARY KEY,category_name varchar(200) UNIQUE KEY NOT NULL);
-  Query OK, 0 rows affected (0.38 sec)
+8)Which method is called only once in Servlet life cycle ?
+ans)init()
 
-->insert into categories values(2587,'science'),(3698,'math'),(321,'english');
-  Query OK, 3 rows affected (0.06 sec)
-  Records: 3  Duplicates: 0  Warnings: 0
 
-->mysql> select * from categories;
- +-------------+---------------+
- | category_id | category_name |
- +-------------+---------------+
- |         321 | english       |
- |        3698 | math          |
- |        2587 | science       |
- +-------------+---------------+
- 3 rows in set (0.00 sec)
+9) Which of these classes define the getWriter() method that returns an object of type PrintWriter ?
+ans)HttpServletResponse
+
+
+10)Which method defined in the HttpServletResponse may be used to set the content type ?
+ans)setContentType()
+
+
+11)Which method of HttpServletResponse is used to redirect an HTTP request to another URL 
+ans)sendRedirect()
+
+
+12)Which method defined in the HttpServletRequest returns the object of RequestDispatcher ?
+ans)getRequestDispatcher()
+
+
+13Which statement is true about include() method of RequestDispatcher interface ?
+ans)includes the content of any resource inside the current servlet.
+
+
+14)Which method of HttpServletRequest returns the name of the HTTP method with which the request was made
+ans)getMethod()
+
+
+15)When the Web Container initializes a servlet, it creates a ___________ object for the servlet ?
+ans)ServletConfig
+
+
+16)____________ object is available to any servlet or JSPs that are part of the web app and provides communication between servlets and JSPs.
+ans)ServletContext
+
+
+17)Which types of objects can store attributes ?
+ans)HttpServletRequest
+
+
+18)Given request is an HttpServletRequest, which code snippets will creates a session if one doesn't exist?
+ans)request.getSession();
+
+
+19)Which method is used access the cookies that are added to response object?
+ans)getCookies()
+
+
+20)Which method is used to get the parameter value from request object?
+ans)getParameter()
+
+
+21)Which method returns a string containing the unique session id?
+ans)getId()
+
+
+22)Cookies are stored on _______ side
+ans)Client
+
+
+23)Which method is used to delete a session?
+ans) invalidate()
+
+
+24)Which method returns the time when the session was created?
+ans)getCreationTime()
+
+
+25)Which of the following is an implicit object?
+ans)pageContext
+
+
+26)Which of the following attributes are mandatory in <jsp:getProperty /> tag?
+ans) name, property
+
+
+27)Which of the following method can be used to read a form parameter in JSP?
+ans)request.getParameter()
+
+
+28)If a jsp is to generate a xml page, what attribute of page directive it should use?
+ans)contentType
+
+
+29)Which of the following step is taken by JSP container during Compilation phase?
+ans)Compiling the servlet.
+
+<------------------------------------------------------------------------------->
+1)usebean  :-attributes
+ans) id,class
+
+2)jsp int !a=10,a=20,b=30
+(a*b)
+ans)300
+
+3)Which method is used to delete a session?
+ans) public void invalidate()
+
+4)The welcome-file-list element of 
+ans)web-app
+
+5)import date in jsp 
+The current date is <%= new java.util.Date() %>
+ans)date will be shown
+
+6)setProperty attributes are
+ans)name,property
+
+7)getAttribute are required by
+ans)non of the above
+
+8)form elements are read by 
+ans)req.getParameter();
+
+9)maximum session utilization 
+ans)getMaxInactiveInterval()
+
+10)processing request in jsp
+ans)_jspService()
+
+11)servlet lifecycle instance are managed by 
+ans)WebContainer
+
+12)ans)charli chaplin chaplin
+
+13)state of the user that are managed on server side
+ans)session
+
+14)response and request in a webapplication is controlled by 
+ans)WebContainer
+
+15)ServletConfig reads data from?
+ans)web.xml
+
+16)getProperty attributes are
+ans)name,property
+
+17)Iteration 
+ans)<c:forEach>
+
+18)HttpSession session=req.getSession("");
+
+19)GenericServlet 
+
+20)tomcat error
+
+21)5 6 7 8 9 10 
+begin="5" and end="10"
+
+22)start="0" stop="0"
+abc
+ans)2
+
+23)<%=request.getContentType() %>
+ans)null
+
+or
+
+<%=getContentType() %>
+ans)compile error
+
+
+24)<jsp:setProperty name="bean" property="username" value="sandip"/>  
  
+25)<%@ page info="this is a welcome page"%>
 
-->mysql> create table books(book_id int PRIMARY KEY,title varchar(150) NOT NULL,ISBN int UNIQUE KEY NOT NULL,publication_year int NOT NULL,publisher_id int,category_id int,FOREIGN KEY(publisher_id)REFERENCES publishers(publisher_id) ON DELETE CASCADE,FOREIGN KEY(category_id)REFERENCES categories(category_id) ON DELETE CASCADE,author_name varchar(300) CHECK(author_name != Null));
-  Query OK, 0 rows affected (0.47 sec)
+26)jsp comment
 
+<%--    --%>
 
-->insert into books values(6545,'atom_thory',4565,2001,656,2587,'gaurav_mishra'),(8798,'algebra',9865,2005,987,3698,'albert'),(9876,'pronuncations',6549,2000,321,321,'austin');
-  Query OK, 3 rows affected (0.06 sec) 
-  Records: 3  Duplicates: 0  Warnings: 0
-
-select * from books;
-+---------+---------------+------+------------------+--------------+-------------+---------------+
-| book_id | title         | ISBN | publication_year | publisher_id | category_id | author_name   |
-+---------+---------------+------+------------------+--------------+-------------+---------------+
-|    6545 | atom_thory    | 4565 |             2001 |          656 |        2587 | gaurav_mishra |
-|    8798 | algebra       | 9865 |             2005 |          987 |        3698 | albert        |
-|    9876 | pronuncations | 6549 |             2000 |          321 |         321 | austin        |
-+---------+---------------+------+------------------+--------------+-------------+---------------+
-3 rows in set (0.00 sec)
+27)RequestDispatcher rd=req.getRequestDispatcher("/customer/showcar");
+	rd.forward(req, res);
 
 
-->mysql> create table users(user_id int PRIMARY KEY,user_name varchar(150) NOT NULL,email varchar(200) UNIQUE KEY NOT NULL,phone_no int UNIQUE KEY NOT NULL);
-  Query OK, 0 rows affected (0.88 sec)
-
-
-
-->insert into users values(20,'sai','sai@one',1236547890),(50,'lakshman','laki@two',9874563210),(15,'rani','rani@queen','2589637410');
-
-select * from users;
-+---------+-----------+------------+----------+
-| user_id | user_name | email      | phone_no |
-+---------+-----------+------------+----------+
-|      15 | rani      | rani@queen |  2589637 |
-|      20 | sai       | sai@one    |   123650 |
-|      50 | lakshman  | laki@two   |    98745 |
-+---------+-----------+------------+----------+
-3 rows in set (0.00 sec)
-
-
-
-
-->create table borrowings(borrow_id int PRIMARY KEY,user_id int,book_id int,FOREIGN KEY(user_id)REFERENCES users(user_id) ON DELETE CASCADE,FOREIGN KEY(book_id)REFERENCES books(book_id) ON DELETE CASCADE,borrow_date DATE,return_date DATE);
-  Query OK, 0 rows affected (1.07 sec)
-
-
-->insert into borrowings values(6546,20,9876,'12-12-24','12-01-25'),(4452,50,6545,'15-11-24','15-12-25'),(7889,15,8798,'30-11-24','30-12-25');
-  Query OK, 3 rows affected (0.06 sec)
-  Records: 3  Duplicates: 0  Warnings: 0
-
- select * from borrowings;
-+-----------+---------+---------+-------------+-------------+
-| borrow_id | user_id | book_id | borrow_date | return_date |
-+-----------+---------+---------+-------------+-------------+
-|      4452 |      50 |    6545 | 2015-11-24  | 2015-12-25  |
-|      6546 |      20 |    9876 | 2012-12-24  | 2012-01-25  |
-|      7889 |      15 |    8798 | 2030-11-24  | 2030-12-25  |
-+-----------+---------+---------+-------------+-------------+
-3 rows in set (0.00 sec)
-
-
-SELECT
-         b.book_id, b.title, b.ISBN, b.publication_year, b.publisher_id,b.category_id,
-         p.publisher_name, c.category_name, b.author_name,
-         u.user_name, u.email, u.phone_no,
-         bo.borrow_date, bo.return_date,u.user_id,bo.borrow_id
-     FROM
-         borrowings bo
-     JOIN
-         books b ON bo.book_id = b.book_id
-     JOIN
-         publishers p ON b.publisher_id = p.publisher_id
-     JOIN
-         categories c ON b.category_id = c.category_id
-     JOIN
-         users u ON bo.user_id = u.user_id;
-
-
-+---------+---------------+------+------------------+--------------+-------------+----------------+---------------+---------------+-----------+------------+----------+-------------+-------------+---------+-----------+
-| book_id | title         | ISBN | publication_year | publisher_id | category_id | publisher_name | category_name | author_name   | user_name | email      | phone_no | borrow_date | return_date | user_id | borrow_id |
-+---------+---------------+------+------------------+--------------+-------------+----------------+---------------+---------------+-----------+------------+----------+-------------+-------------+---------+-----------+
-|    8798 | algebra       | 9865 |             2005 |          987 |        3698 | lakshmi_kumari | math          | albert        | rani      | rani@queen |  2589637 | 2030-11-24  | 2030-12-25  |      15 |      7889 |
-|    9876 | pronuncations | 6549 |             2000 |          321 |         321 | suhail         | english       | austin        | sai       | sai@one    |   123650 | 2012-12-24  | 2012-01-25  |      20 |      6546 |
-|    6545 | atom_thory    | 4565 |             2001 |          656 |        2587 | krishna_kumar  | science       | gaurav_mishra | lakshman  | laki@two   |    98745 | 2015-11-24  | 2015-12-25  |      50 |      4452 |
-+---------+---------------+------+------------------+--------------+-------------+----------------+---------------+---------------+-----------+------------+----------+-------------+-------------+---------+-----------+
-3 rows in set (0.00 sec)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+28)which method is used to get cookies added to reponse object.
+ans)getCookies();
+-------------------------------------------------------------------------------
