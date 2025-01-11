@@ -1,3 +1,7 @@
+https://www.sanfoundry.com/advanced-java-questions-answers-web-application/
+
+
+
 1)Which of the following statement is not correct about HTTP method ?
 ans)A POST request append data to the end of the URL.
 
