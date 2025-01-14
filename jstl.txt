@@ -1,0 +1,102 @@
+JSTL----For creating JSTL application, you need to load the jstl.jar file.
+-----------------------------
+set of tags used to simplify the jsp development
+ADVANTAGES:
+*fast development
+*code reusability
+*no need to use scriptlet tag
+
+
+the JSTL mainly provides five types of tags
+-------------------------------------------------------
+1.core tags - c
+  The JSTL core tag provides variable support, URL management, flow control etc. The syntax used for including JSTL core library in your JSP is:
+
+          <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>  
+c:out
+c:import
+c:set
+c:remove
+c:catch
+c:if
+c:choose,c:when,c:otherwise
+c:foreach
+c:fortokens
+c:param
+c:redirect
+c:url
+
+2.function tags -fn
+   most of these tags are common string manipulation functions 
+      Syntax:<%@taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
+fn:contains
+fn:containsIgnorecase
+fn:endswith
+fn:escapexml
+fn:indexof
+fn:trim
+fn:startswith
+fn:split
+fn:tolowercase
+fn:touppercase
+fn:substring
+fn:substringafter
+fn:substringbefore
+fn:length
+fn:replace
+
+3.formatting tags - fmt
+        The JSTL formatting tags are used for internationalized web sites to display and format text, the time, the date and numbers. 
+        syntax: <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"  %>  
+
+fmt:prasenumber
+fmt:timezone
+fmt:formatenumber
+fmt:parsedate
+fmt:bundle
+fmt:settimezone
+fmt:setbundle
+fmt:message
+fmt:formatedate
+
+4.xml tags - x
+       these tags provide flow control,transformation etc
+       Syntax:<%@ taglib uri="http://java.sun.com/jsp/jstl/xml" prefix="x" %>  
+
+x:out
+x:parse
+x:set
+x:choose
+x:when
+x:otherwise
+x:if
+x:transform
+x:param
+
+5.sql tags - sql
+    the sql tag library allows the tag to interact with RDBMS 
+       Syntax:<%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql" %>  
+sql:setdatasource
+sql:query
+sql:update
+sql:param
+sql:dataparam
+sql:transaction
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
