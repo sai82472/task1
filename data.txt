@@ -1,0 +1,48 @@
+1. General Assembly
+What they offer: Data Analytics bootcamps that cover key topics like Excel, SQL, Python, and data visualization.
+Career Assistance: They offer job placement support, including interview coaching and access to a network of employers.
+Website: General Assembly
+2. Springboard
+What they offer: Data Analytics Bootcamp that is designed for beginners and covers topics like Python, SQL, and Tableau.
+Career Assistance: Springboard offers a job guarantee program, which means they provide job support, including mentorship and career coaching, and you only pay tuition once you land a job.
+Website: Springboard
+3. DataCamp
+What they offer: An online learning platform that provides courses on data science, analytics, and machine learning.
+Career Assistance: While it’s more focused on self-paced learning, DataCamp offers career tracks and certifications which are highly regarded by employers.
+Website: DataCamp
+4. Coursera
+What they offer: Partnered with top universities (like Duke, University of Michigan, etc.), Coursera offers various data analytics certifications and professional certificates in tools like SQL, Excel, and Tableau.
+Career Assistance: Some courses offer career services, and Coursera's job-ready certifications are recognized by employers globally.
+Website: Coursera
+5. Thinkful
+What they offer: Thinkful offers a Data Analytics Bootcamp with flexible learning schedules that focus on practical tools like Excel, Python, and SQL.
+Career Assistance: Thinkful offers career coaching, job placement assistance, and guarantees job placement or your tuition back.
+Website: Thinkful
+6. Udacity
+What they offer: Data Analyst Nanodegree program that teaches Python, SQL, data wrangling, and visualization.
+Career Assistance: Udacity provides career services, including resume reviews, LinkedIn profile optimization, and interview coaching.
+Website: Udacity
+7. Flatiron School
+What they offer: Offers Data Science and Data Analytics bootcamps that cover key programming languages and analytics skills.
+Career Assistance: Flatiron School provides comprehensive job search support, including a career coach, networking events, and employer partnerships.
+Website: Flatiron School
+8. CareerFoundry
+What they offer: A Data Analytics short course that focuses on practical tools, data wrangling, visualization, and analysis.
+Career Assistance: They offer job search assistance, resume building, portfolio reviews, and interview preparation.
+Website: CareerFoundry
+9. The Data Incubator
+What they offer: A Data Science Fellowship, which also covers advanced data analytics techniques.
+Career Assistance: They offer strong career support with a focus on placing fellows in top companies.
+Website: The Data Incubator
+10. IBM Skills Academy
+What they offer: Data Analytics training that includes free and paid courses, covering everything from basic concepts to advanced techniques.
+Career Assistance: IBM collaborates with employers to help job-seekers find roles in data analytics through its career services.
+Website: IBM Skills Academy
+11. LinkedIn Learning
+What they offer: Offers numerous data analytics courses and learning paths, from beginner to advanced levels.
+Career Assistance: While they don’t offer direct job placement, LinkedIn Learning gives access to LinkedIn's professional network, which can be a valuable tool for job searches.
+Website: LinkedIn Learning
+12. Skillshare
+What they offer: A variety of short courses in data analytics, including SQL, Tableau, Power BI, and more.
+Career Assistance: Not a traditional bootcamp with career placement, but the courses can help you build the skills needed for the job market.
+Website: Skillshare
