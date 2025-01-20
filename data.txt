@@ -46,3 +46,32 @@ Website: LinkedIn Learning
 What they offer: A variety of short courses in data analytics, including SQL, Tableau, Power BI, and more.
 Career Assistance: Not a traditional bootcamp with career placement, but the courses can help you build the skills needed for the job market.
 Website: Skillshare
+
+
+
+
+
+
+
+
+
+
+Kaggle Learn: Free, hands-on learning courses for data analysis.
+
+
+
+
+
+
+
+
+
+
+
+
+
+Continue Advancing Your Career
+Certifications: As you gain experience, you can pursue certifications such as:
+Google Data Analytics Professional Certificate (Coursera)
+Microsoft Certified: Data Analyst Associate (Power BI)
+Tableau Desktop Specialist
